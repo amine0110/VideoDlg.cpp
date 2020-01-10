@@ -1,5 +1,5 @@
 
-// MFC_TP3_videoDlg.cpp : fichier d'implémentation
+// MFC_TP3_videoDlg.cpp : fichier d'implÃ©mentation
 //
 
 #include "stdafx.h"
@@ -15,7 +15,7 @@
 //*****************************
 CMFC_TP3_videoDlg *pDial; // pDiad :est un pointeur vers une boite de dialogue qui comporte : Hauteur, Largeur, Imrgb(vecteur de stockage d'image)....
 
-// boîte de dialogue CAboutDlg utilisée pour la boîte de dialogue 'À propos de' pour votre application
+// boÃ®te de dialogue CAboutDlg utilisÃ©e pour la boÃ®te de dialogue 'Ã€ propos de' pour votre application
 
 class CAboutDlg : public CDialogEx
 {
@@ -23,7 +23,7 @@ public:
 	CAboutDlg();
 	unsigned char * Imrgb= NULL; //******************* ajout pointeur
 
-// Données de boîte de dialogue
+// DonnÃ©es de boÃ®te de dialogue
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
@@ -31,7 +31,7 @@ public:
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 
-// Implémentation
+// ImplÃ©mentation
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -49,7 +49,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// boîte de dialogue CMFC_TP3_videoDlg
+// boÃ®te de dialogue CMFC_TP3_videoDlg
 
 
 
@@ -76,6 +76,8 @@ BEGIN_MESSAGE_MAP(CMFC_TP3_videoDlg, CDialogEx)
 	ON_BN_CLICKED(m_inversion, &CMFC_TP3_videoDlg::OnBnClickedinversion)
 	ON_BN_CLICKED(m_seuillage, &CMFC_TP3_videoDlg::OnBnClickedseuillage)
 	ON_BN_CLICKED(IDC_BUTTON1, &CMFC_TP3_videoDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_rotation, &CMFC_TP3_videoDlg::OnBnClickedrotation)
+	ON_BN_CLICKED(IDC_flou, &CMFC_TP3_videoDlg::OnBnClickedflou)
 END_MESSAGE_MAP()
 
 
@@ -85,9 +87,9 @@ BOOL CMFC_TP3_videoDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// Ajouter l'élément de menu "À propos de..." au menu Système.
+	// Ajouter l'Ã©lÃ©ment de menu "Ã€ propos de..." au menu SystÃ¨me.
 
-	// IDM_ABOUTBOX doit se trouver dans la plage des commandes système.
+	// IDM_ABOUTBOX doit se trouver dans la plage des commandes systÃ¨me.
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -105,14 +107,14 @@ BOOL CMFC_TP3_videoDlg::OnInitDialog()
 		}
 	}
 
-	// Définir l'icône de cette boîte de dialogue.  L'infrastructure effectue cela automatiquement
-	//  lorsque la fenêtre principale de l'application n'est pas une boîte de dialogue
-	SetIcon(m_hIcon, TRUE);			// Définir une grande icône
-	SetIcon(m_hIcon, FALSE);		// Définir une petite icône
+	// DÃ©finir l'icÃ´ne de cette boÃ®te de dialogue.  L'infrastructure effectue cela automatiquement
+	//  lorsque la fenÃªtre principale de l'application n'est pas une boÃ®te de dialogue
+	SetIcon(m_hIcon, TRUE);			// DÃ©finir une grande icÃ´ne
+	SetIcon(m_hIcon, FALSE);		// DÃ©finir une petite icÃ´ne
 
-	// TODO: ajoutez ici une initialisation supplémentaire
+	// TODO: ajoutez ici une initialisation supplÃ©mentaire
 
-	return TRUE;  // retourne TRUE, sauf si vous avez défini le focus sur un contrôle
+	return TRUE;  // retourne TRUE, sauf si vous avez dÃ©fini le focus sur un contrÃ´le
 }
 
 void CMFC_TP3_videoDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -128,19 +130,19 @@ void CMFC_TP3_videoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// Si vous ajoutez un bouton Réduire à votre boîte de dialogue, vous devez utiliser le code ci-dessous
-//  pour dessiner l'icône.  Pour les applications MFC utilisant le modèle Document/Vue,
+// Si vous ajoutez un bouton RÃ©duire Ã  votre boÃ®te de dialogue, vous devez utiliser le code ci-dessous
+//  pour dessiner l'icÃ´ne.  Pour les applications MFC utilisant le modÃ¨le Document/Vue,
 //  cela est fait automatiquement par l'infrastructure.
 
 void CMFC_TP3_videoDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // contexte de périphérique pour la peinture
+		CPaintDC dc(this); // contexte de pÃ©riphÃ©rique pour la peinture
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Centrer l'icône dans le rectangle client
+		// Centrer l'icÃ´ne dans le rectangle client
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -148,7 +150,7 @@ void CMFC_TP3_videoDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// Dessiner l'icône
+		// Dessiner l'icÃ´ne
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -157,8 +159,8 @@ void CMFC_TP3_videoDlg::OnPaint()
 	}
 }
 
-// Le système appelle cette fonction pour obtenir le curseur à afficher lorsque l'utilisateur fait glisser
-//  la fenêtre réduite.
+// Le systÃ¨me appelle cette fonction pour obtenir le curseur Ã  afficher lorsque l'utilisateur fait glisser
+//  la fenÃªtre rÃ©duite.
 HCURSOR CMFC_TP3_videoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
@@ -168,7 +170,7 @@ HCURSOR CMFC_TP3_videoDlg::OnQueryDragIcon()
 
 void CMFC_TP3_videoDlg::OnBnClickedOk()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrÃ´le
 	CDialogEx::OnOK();
 }
 
@@ -223,7 +225,7 @@ CIma Ima;
 LPVOID CALLBACK CMFC_TP3_videoDlg::DetectionContour2(HWND hWndC, LPVIDEOHDR pV)
 {
 	unsigned char *PImage;
-	PImage = pV->lpData; // PImage devient le pointeur vers les données
+	PImage = pV->lpData; // PImage devient le pointeur vers les donnÃ©es
 	
 
 	Ima.ConvertYUY2RGB(pV->lpData, pDial->Imrgb, pDial->Largeur, pDial->Hauteur);  
@@ -241,7 +243,7 @@ LPVOID CALLBACK CMFC_TP3_videoDlg::DetectionContour2(HWND hWndC, LPVIDEOHDR pV)
 LPVOID CALLBACK CMFC_TP3_videoDlg::DetectionContour(HWND hWndC, LPVIDEOHDR pV)
 {
 	unsigned char *PImage;
-	PImage = pV->lpData; // PImage devient le pointeur vers les données
+	PImage = pV->lpData; // PImage devient le pointeur vers les donnÃ©es
 
 
 	Ima.ConvertYUY2RGB(pV->lpData, pDial->Imrgb, pDial->Largeur, pDial->Hauteur);
@@ -259,7 +261,7 @@ LPVOID CALLBACK CMFC_TP3_videoDlg::DetectionContour(HWND hWndC, LPVIDEOHDR pV)
 LPVOID CALLBACK CMFC_TP3_videoDlg::InverserImage(HWND hWndC, LPVIDEOHDR pV)
 {
 	unsigned char *PImage;
-	PImage = pV->lpData; // PImage devient le pointeur vers les données
+	PImage = pV->lpData; // PImage devient le pointeur vers les donnÃ©es
 
 
 	Ima.ConvertYUY2RGB(pV->lpData, pDial->Imrgb, pDial->Largeur, pDial->Hauteur);
@@ -277,7 +279,7 @@ LPVOID CALLBACK CMFC_TP3_videoDlg::InverserImage(HWND hWndC, LPVIDEOHDR pV)
 LPVOID CALLBACK CMFC_TP3_videoDlg::SeuillageImage(HWND hWndC, LPVIDEOHDR pV)
 {
 	unsigned char *PImage;
-	PImage = pV->lpData; // PImage devient le pointeur vers les données
+	PImage = pV->lpData; // PImage devient le pointeur vers les donnÃ©es
 
 
 	Ima.ConvertYUY2RGB(pV->lpData, pDial->Imrgb, pDial->Largeur, pDial->Hauteur);
@@ -291,6 +293,44 @@ LPVOID CALLBACK CMFC_TP3_videoDlg::SeuillageImage(HWND hWndC, LPVIDEOHDR pV)
 	Ima.ConvertRGBYUY2(pDial->Imrgb, pV->lpData, pDial->Largeur, pDial->Hauteur); // passage en YUY2
 	return 0;
 }
+
+LPVOID CALLBACK CMFC_TP3_videoDlg::rotation(HWND hWndC, LPVIDEOHDR pV)
+{
+	unsigned char *PImage;
+	PImage = pV->lpData; // PImage devient le pointeur vers les donnÃ©es
+
+
+	Ima.ConvertYUY2RGB(pV->lpData, pDial->Imrgb, pDial->Largeur, pDial->Hauteur);
+
+
+	Ima.rotation(pDial->Imrgb, pDial->Largeur, pDial->Hauteur); // traitement de Imrgb en RGB 24 bits 
+	Ima.ConvertRGBYUY2(pDial->Imrgb, pV->lpData, pDial->Largeur, pDial->Hauteur);
+
+
+
+	//Ima.ConvertRGBYUY2(pDial->Imrgb, pV->lpData, pDial->Largeur, pDial->Hauteur); // passage en YUY2
+	return 0;
+}
+
+LPVOID CALLBACK CMFC_TP3_videoDlg::flou(HWND hWndC, LPVIDEOHDR pV)
+{
+	unsigned char *PImage;
+	PImage = pV->lpData; // PImage devient le pointeur vers les donnÃ©es
+
+
+	Ima.ConvertYUY2RGB(pV->lpData, pDial->Imrgb, pDial->Largeur, pDial->Hauteur);
+
+
+	Ima.Flou(pDial->Imrgb, pDial->Largeur, pDial->Hauteur); // traitement de Imrgb en RGB 24 bits 
+	Ima.ConvertRGBYUY2(pDial->Imrgb, pV->lpData, pDial->Largeur, pDial->Hauteur);
+
+
+
+	Ima.ConvertRGBYUY2(pDial->Imrgb, pV->lpData, pDial->Largeur, pDial->Hauteur); // passage en YUY2
+	return 0;
+}
+
+
 
 
 
@@ -309,4 +349,16 @@ void CMFC_TP3_videoDlg::OnBnClickedseuillage()
 void CMFC_TP3_videoDlg::OnBnClickedButton1()
 {
 	capSetCallbackOnFrame(hWndC, CMFC_TP3_videoDlg::DetectionContour2);
+}
+
+
+void CMFC_TP3_videoDlg::OnBnClickedrotation()
+{
+	capSetCallbackOnFrame(hWndC, CMFC_TP3_videoDlg::rotation);
+}
+
+
+void CMFC_TP3_videoDlg::OnBnClickedflou()
+{
+	capSetCallbackOnFrame(hWndC, CMFC_TP3_videoDlg::flou);
 }
